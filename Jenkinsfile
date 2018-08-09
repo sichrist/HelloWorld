@@ -6,8 +6,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'mkdir -p build'
-                sh 'cd build && cmake .. && make && ./hello'
+                sh 'mkdir -p build && cd build && cmake .. && make && ./hello'
             }
         }
         stage('Test') {
@@ -18,6 +17,12 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+            }
+        }
+        stage('Clean'){
+            steps{
+                echo 'Cleaning.....'
+                sh 'rm -rf build'
             }
         }
     }
