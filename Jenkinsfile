@@ -6,9 +6,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                cd build
-                cmake ..
-                cd ..
+                sh 'cd build'
+                sh 'cmake ..'
+                sh 'cd ..'
             }
         }
         stage('Test') {
