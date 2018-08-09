@@ -8,6 +8,7 @@ pipeline {
                 echo 'Building..'
                 sh 'mkdir -p build'
                 sh 'cd build & cmake ..'
+                sh 'ls -l'
                 sh 'cd ..'
             }
         }
