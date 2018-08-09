@@ -7,10 +7,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh 'mkdir -p build'
-                sh 'cd build && cmake ..'
-                sh 'make'
-                sh './hello'
-                sh 'cd ..'
+                sh 'cd build && cmake .. && make && ./hello'
             }
         }
         stage('Test') {
