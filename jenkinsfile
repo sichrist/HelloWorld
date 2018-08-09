@@ -1,9 +1,21 @@
-pipeline { 
-    agent any 
+#!groovy
+pipeline {
+    agent any
+
     stages {
-        stage('Build') { 
-            steps { 
-                sh 'ls' 
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
