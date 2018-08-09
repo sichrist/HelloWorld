@@ -7,8 +7,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh 'mkdir -p build'
-                sh 'cd build'
-                sh 'cmake '
+                sh 'cd build & cmake ..'
                 sh 'cd ..'
             }
         }
