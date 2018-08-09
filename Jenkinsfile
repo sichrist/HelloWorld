@@ -14,6 +14,11 @@ pipeline {
                 echo 'Testing..'
             }
         }
+        stage('SonarQube analyzing...'){
+            steps{
+                sh 'sonar-scanner'
+            }
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
