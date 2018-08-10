@@ -16,7 +16,7 @@ pipeline {
         }
         stage('SonarQube analyzing...'){
             steps{
-                sh 'sonar-scanner'
+                sh '/opt/sonar-scanner/bin/sonar-scanner'
             }
         }
         stage('Deploy') {
