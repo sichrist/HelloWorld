@@ -62,3 +62,4 @@ add_executable(testrun ${TEST_SRC_FILES})
 target_link_libraries(testrun HelloWorld_lib)
 target_link_libraries(testrun gtest_main)
 add_test(NAME test COMMAND testrun)
+

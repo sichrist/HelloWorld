@@ -15,7 +15,7 @@ pipeline {
                 echo 'Run Binary ..'
                 sh 'build/HelloWorld'
                 echo 'Run Test ..'
-                sh 'build/testrun'
+                sh 'build/testrun --gtest_output=xml'
             }
         }
         stage('SonarQube analyzing...'){
