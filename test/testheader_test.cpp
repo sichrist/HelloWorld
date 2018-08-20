@@ -1,4 +1,5 @@
 #include "testheader.h"
+#include "gtest/gtest.h"
 
 class TestHeaderTest : public::testing::Test {
 protected:
