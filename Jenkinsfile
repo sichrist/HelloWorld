@@ -22,7 +22,7 @@ pipeline {
         stage('Linting'){
             steps{
                 echo 'Linting..'
-                sh 'cppcheck --enable=all --inconclusive --std=posix -q --xml --xml-version=2 --check-config src/ include/ test/ 2> result_cppcheck.xml'
+                sh 'cppcheck --enable=all --inconclusive --std=posix -q --xml --xml-version=2 -I include/ --check-config src/ include/ test/ 2> result_cppcheck.xml'
             }
         } 
         stage('SonarQube analyzing...'){
