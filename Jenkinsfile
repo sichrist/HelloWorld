@@ -11,9 +11,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
-                echo 'Run Binary ..'
-                sh 'build/HelloWorld'
+                echo 'Testing..'                
                 echo 'Run Test ..'
                 sh 'build/testrun --gtest_output=xml'
             }
