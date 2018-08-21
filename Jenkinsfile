@@ -13,7 +13,7 @@ pipeline {
             steps {
                 echo 'Testing..'
                 echo 'Run Binary ..'
-                sh 'build/HelloWorld'
+                sh 'valgrind --xml=yes --xml-file=report.xml build/HelloWorld'
                 echo 'Run Test ..'
                 sh 'build/testrun --gtest_output=xml'
             }
