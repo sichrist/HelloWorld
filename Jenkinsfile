@@ -37,6 +37,7 @@ pipeline {
         stage('Clean'){
             steps{
                 echo 'Cleaning.....'
+                sh 'tree'
                 sh 'rm -rf build'
             }
         }
