@@ -16,6 +16,7 @@ pipeline {
                 sh 'build/HelloWorld'
                 echo 'Run Test ..'
                 sh 'build/testrun --gtest_output=xml'
+                sh 'ls -l build/'
             }
         }
         stage('SonarQube analyzing...'){
