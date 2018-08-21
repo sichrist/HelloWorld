@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/testheader.h
+
+/home/simon/Volume/programming/jenkins_tests/HelloWorld/src/testfile.cpp
+testheader.h
+/home/simon/Volume/programming/jenkins_tests/HelloWorld/src/testheader.h
+
