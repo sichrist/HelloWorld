@@ -39,6 +39,7 @@ pipeline {
                 echo 'Cleaning.....'
                 sh 'tree'
                 sh 'rm -rf build'
+                sh 'rm *.xml'
             }
         }
     }
