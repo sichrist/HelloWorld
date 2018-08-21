@@ -1,3 +1,0 @@
-/home/simon/Volume/programming/jenkins_tests/HelloWorld/build/googletest-download/CMakeFiles/rebuild_cache.dir
-/home/simon/Volume/programming/jenkins_tests/HelloWorld/build/googletest-download/CMakeFiles/googletest.dir
-/home/simon/Volume/programming/jenkins_tests/HelloWorld/build/googletest-download/CMakeFiles/edit_cache.dir
