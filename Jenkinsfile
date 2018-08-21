@@ -21,7 +21,7 @@ pipeline {
             steps{
                 echo 'Linting..'
                 sh 'cppcheck -v --enable=all --xml --xml-version=2 -I include/ --check-config src/ include/ test/ 2> result_cppcheck.xml'
-                sh 'rats -w 3 --xml src/ include/ > rats_report.xml'
+                sh 'rats -w 3 --xml src/*.cpp include/*.h > rats_report.xml'
             }
         } 
         stage('SonarQube analyzing...'){
