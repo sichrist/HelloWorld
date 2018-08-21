@@ -6,7 +6,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'mkdir -p build && cd build && scan-build cmake .. && make'
+                sh 'mkdir -p build && cd build && scan-build cmake .. && scan-build --use-cc=clang --use-c++=clang++ -o ./scanbuildout/ make'
             }
         }
         stage('Test') {
@@ -22,7 +22,6 @@ pipeline {
                 echo 'Linting..'
                 sh 'cppcheck --enable=all --inconclusive --std=posix -q --xml --xml-version=2 -I include/ --check-config src/ include/ test/ 2> result_cppcheck.xml'
                 sh 'rats -w 3 --xml src/ include/ > rats_report.xml'
-                sh 'cd build && scan-build --use-cc=clang --use-c++=clang++ -o ./scanbuildout/ make'
             }
         } 
         stage('SonarQube analyzing...'){
