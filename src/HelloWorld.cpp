@@ -28,6 +28,6 @@ a = i + a;}
 
     char buffer1[1024];
     char buffer2[1024];
-    CopyMemory(buffer1, buffer2, 1024);
+    std::memcpy(buffer1, buffer2, 1024);
 }
 
