@@ -6,7 +6,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'mkdir -p build && cd build && scan-build cmake -DCMAKE_BUILD_TYPE=Debug .. && scan-build -plist --use-cc=clang --use-c++=clang++ -o ./scanbuildout/ make && make HelloWorld_coverage'
+                sh 'mkdir -p build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug .. && make && make HelloWorld_coverage'
             }
         }
         stage('Test') {
@@ -26,7 +26,6 @@ pipeline {
         } 
         stage('SonarQube analyzing...'){
             steps{
-                sh 'mv build/*.xml ./'
                 sh '/opt/sonar-scanner/bin/sonar-scanner -X'
             }
         }
