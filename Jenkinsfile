@@ -6,8 +6,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'mkdir -p build && cd build && scan-build cmake .. && scan-build -plist --use-cc=clang --use-c++=clang++ -o ./scanbuildout/ make '
-                sh 'mv build/scanbuildout ./ && rm -rf build/*'
                 sh 'cd build && cmake -DCMAKE_BUILD_TYPE=Debug .. && make && make HelloWorld_coverage'
             }
         }
@@ -42,7 +40,6 @@ pipeline {
                 sh 'tree'
                 sh 'rm -rf build'
                 sh 'rm *.xml'
-                sh 'rm -rf scanbuildout'
             }
         }
     }
