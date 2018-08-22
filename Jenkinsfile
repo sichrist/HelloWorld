@@ -6,7 +6,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'cd build && cmake -DCMAKE_BUILD_TYPE=Debug .. && make && make HelloWorld_coverage'
+                sh 'mkdir -p build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug .. && make && make HelloWorld_coverage'
             }
         }
         stage('Test') {
