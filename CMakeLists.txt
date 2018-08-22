@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 2.9)
 
 
+set(MAIN HelloWorld)
 set(PROJECT_NAME HelloWorld)
 project(${PROJECT_NAME})
 
@@ -12,14 +13,14 @@ include_directories(${COMMON_INCLUDES})
 file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/src/*.cpp)
 file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/test/*.cpp)
 
-list(REMOVE_ITEM SRC_FILES ${PROJECT_SOURCE_DIR}/src/HelloWorld.cpp)
+list(REMOVE_ITEM SRC_FILES ${PROJECT_SOURCE_DIR}/src/${MAIN}.cpp)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_library(HelloWorld_lib ${SRC_FILES})
-add_executable(HelloWorld ${PROJECT_SOURCE_DIR}/src/HelloWorld.cpp)
+add_library(${PROJECT_NAME}_lib ${SRC_FILES})
+add_executable(${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/src/${MAIN}.cpp)
 
-target_link_libraries(HelloWorld HelloWorld_lib)
+target_link_libraries(${PROJECT_NAME} ${PROJECT_NAME}_lib)
 
 
 ###########################################
@@ -59,10 +60,11 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
 endif()
 
 # Now simply link against gtest or gtest_main as needed. Eg
-add_executable(testrun ${TEST_SRC_FILES})
-target_link_libraries(testrun HelloWorld_lib)
-target_link_libraries(testrun gtest_main)
-add_test(NAME test COMMAND testrun)
+add_executable(${MAIN}_test ${TEST_SRC_FILES})
+target_link_libraries(${MAIN}_test ${MAIN}_lib)
+target_link_libraries(${MAIN}_test gtest_main)
+add_test(NAME test COMMAND ${MAIN}_test)
+
 
 ###########################################
 #				COVERAGE 				  #
@@ -74,7 +76,7 @@ set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/scripts/cmake)
 
 include(CodeCoverage)
 
-SET (CMAKE_C_FLAGS_INIT                "-Wall -std=c99")
+SET (CMAKE_C_FLAGS_INIT                "-Wall -std=c++11")
 SET (CMAKE_C_FLAGS_DEBUG_INIT          "-g")
 SET (CMAKE_C_FLAGS_MINSIZEREL_INIT     "-Os -DNDEBUG")
 SET (CMAKE_C_FLAGS_RELEASE_INIT        "-O4 -DNDEBUG")
@@ -92,8 +94,8 @@ SET(CMAKE_C_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
 APPEND_COVERAGE_COMPILER_FLAGS()
 SETUP_TARGET_FOR_COVERAGE_GCOVR_XML(
 	NAME ${PROJECT_NAME}_coverage 
-	EXECUTABLE testrun
-	DEPENDENCIES HelloWorld_lib)
+	EXECUTABLE ${MAIN}_test
+	DEPENDENCIES ${MAIN}_lib)
     
 
 
