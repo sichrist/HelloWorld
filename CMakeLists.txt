@@ -1,11 +1,14 @@
 cmake_minimum_required(VERSION 2.9)
 
 
+#set(CMAKE_C_COMPILER "gcc")
+#set(CMAKE_CXX_COMPILER "clang")
+
 set(MAIN HelloWorld)
 set(PROJECT_NAME HelloWorld)
 project(${PROJECT_NAME})
 
-set(CMAKE_CXX_FLAGS "-g -Wall")
+set(CMAKE_CXX_FLAGS "-g -Wall -fdiagnostics-show-option")
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/scripts/cmake)
 set(COMMON_INCLUDES ${PROJECT_SOURCE_DIR}/include)
 include_directories(${COMMON_INCLUDES})
@@ -76,7 +79,7 @@ set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/scripts/cmake)
 
 include(CodeCoverage)
 
-SET (CMAKE_C_FLAGS_INIT                "-Wall -std=c++11")
+SET (CMAKE_C_FLAGS_INIT                "-Wall")
 SET (CMAKE_C_FLAGS_DEBUG_INIT          "-g")
 SET (CMAKE_C_FLAGS_MINSIZEREL_INIT     "-Os -DNDEBUG")
 SET (CMAKE_C_FLAGS_RELEASE_INIT        "-O4 -DNDEBUG")
@@ -88,8 +91,8 @@ SET (CMAKE_CXX_FLAGS_MINSIZEREL_INIT     "-Os -DNDEBUG")
 SET (CMAKE_CXX_FLAGS_RELEASE_INIT        "-O4 -DNDEBUG")
 SET (CMAKE_CXX_FLAGS_RELWITHDEBINFO_INIT "-O2 -g")
 
-SET(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
-SET(CMAKE_C_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
+SET(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage -g -Wall -fdiagnostics-show-option")
+SET(CMAKE_C_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage -g -Wall -fdiagnostics-show-option")
 
 APPEND_COVERAGE_COMPILER_FLAGS()
 SETUP_TARGET_FOR_COVERAGE_GCOVR_XML(

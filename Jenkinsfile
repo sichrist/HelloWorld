@@ -20,7 +20,7 @@ pipeline {
         stage('Linting'){
             steps{
                 echo 'Linting..'
-                sh 'cppcheck -v --enable=all --std=c++11 --xml --xml-version=2 -I include/ src/ include/ test/ 2> result_cppcheck.xml && cat result_cppcheck.xml'
+                sh 'cppcheck -v --enable=all --std=c++11 --xml --xml-version=2 -I include/ src/ include/ 2> result_cppcheck.xml && cat result_cppcheck.xml'
                 sh 'rats -w 3 --xml src/*.cpp include/*.h > rats_report.xml'
             }
         } 
