@@ -1,6 +1,6 @@
 #include <iostream>
 #include "testheader.h"
-
+#include <cstring> 
 void test_method()
 {
     int a = 0;
@@ -28,6 +28,6 @@ a = i + a;}
 
     char buffer1[1024];
     char buffer2[1024];
-    std::memcpy(buffer1, buffer2, 1024);
+    memcpy(buffer1, buffer2, 1024);
 }
 
