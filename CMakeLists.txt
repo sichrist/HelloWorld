@@ -24,7 +24,7 @@ target_link_libraries(${PROJECT_NAME} ${PROJECT_NAME}_lib)
 
 
 ###########################################
-#				TESTING 				  #
+#                TESTING                  #
 ###########################################
 
 # Download and unpack googletest at configure time
@@ -67,7 +67,7 @@ add_test(NAME test COMMAND ${MAIN}_test)
 
 
 ###########################################
-#				COVERAGE 				  #
+#                COVERAGE                 #
 ###########################################
 
 
@@ -93,9 +93,9 @@ SET(CMAKE_C_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
 
 APPEND_COVERAGE_COMPILER_FLAGS()
 SETUP_TARGET_FOR_COVERAGE_GCOVR_XML(
-	NAME ${PROJECT_NAME}_coverage 
-	EXECUTABLE ${MAIN}_test
-	DEPENDENCIES ${MAIN}_lib)
+    NAME ${PROJECT_NAME}_coverage 
+    EXECUTABLE ${MAIN}_test
+    DEPENDENCIES ${MAIN}_lib)
     
 
 
