@@ -13,7 +13,7 @@ pipeline {
             steps {
                 echo 'Testing..'                
                 echo 'Run Test ..'
-                sh 'build/testrun --gtest_output=xml'
+                sh 'build/HelloWorld_test --gtest_output=xml'
             }
         }
 
