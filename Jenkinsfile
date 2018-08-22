@@ -26,6 +26,7 @@ pipeline {
         } 
         stage('SonarQube analyzing...'){
             steps{
+                sh 'mv build/*.xml ./'
                 sh '/opt/sonar-scanner/bin/sonar-scanner -X'
             }
         }
