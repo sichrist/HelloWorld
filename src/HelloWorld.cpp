@@ -25,5 +25,9 @@ test_method();
 int a = 0;
 for (int i = 0; i < 10; ++i){
 a = i + a;}
+
+    char buffer1[1024];
+    char buffer2[1024];
+    CopyMemory(buffer1, buffer2, 1024);
 }
 
