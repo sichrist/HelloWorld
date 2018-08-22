@@ -6,7 +6,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'mkdir -p build && cd build && scan-build cmake .. && scan-build -plist --use-cc=clang --use-c++=clang++ -o ./scanbuildout/ make'
+                sh 'mkdir -p build && cd build && scan-build cmake -DCMAKE_BUILD_TYPE=Debug .. && scan-build -plist --use-cc=clang --use-c++=clang++ -o ./scanbuildout/ make && make HelloWorld_coverage'
             }
         }
         stage('Test') {
